@@ -1,19 +1,26 @@
-class PartyAnimal:
-
+class LifeCycle:
     def __init__(self):
-        self.x = 0
-        self.name = z
-        print(self.name, "constructed")
+        self.state = "Born"
+    def grow(self):
+        if self.state == "Born":
+            self.state = "Child"
+        elif self.state == "Child":
+            self.state = "Teenager"
+        elif self.state == "Teenager":
+            self.state = "Adult"
+        else:
+            print("Already an Adult!")
 
-    def party(self):
-        self.x = self.x + 1
-        print(self.name, "party count", self.x)
+    def display_state(self):
+        print(f"Current state: {self.state}")
 
-    def __del__(self):
-        print("I am destructed", self.x)
-
-
-s = PartyAnimal("Sally")
-s.party()
-j = PartyAnimal("Jim")
-j.party()
+if __name__ == "__main__":
+    life = LifeCycle()
+    life.display_state()
+    life.grow()
+    life.display_state()
+    life.grow()
+    life.display_state()
+    life.grow()
+    life.display_state()
+    life.grow()
